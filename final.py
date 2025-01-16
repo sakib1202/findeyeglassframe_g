@@ -18,7 +18,7 @@ import matplotlib.pyplot as plt
 import os
 import seaborn as sns
 
-folder_path = '"C:\Users\HP\Videos\New folder\Face set"'
+folder_path = 'C:\\Users\\HP\\Videos\\New folder\\Face set'
 
 TRAIN_DATASET="/content/drive/MyDrive/Face set/Train face"
 TEST_DATASET="/content/drive/MyDrive/Face set/Test face"
