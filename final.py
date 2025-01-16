@@ -18,10 +18,7 @@ import matplotlib.pyplot as plt
 import os
 import seaborn as sns
 
-import gdown
-
-folder_url = 'https://drive.google.com/drive/folders/11PNEFOYtE4wG6fYLiehPk2U07Qw-rX99?usp=share_link'
-gdown.download_folder(folder_url, quiet=False)
+folder_path = '"C:\Users\HP\Videos\New folder\Face set"'
 
 TRAIN_DATASET="/content/drive/MyDrive/Face set/Train face"
 TEST_DATASET="/content/drive/MyDrive/Face set/Test face"
