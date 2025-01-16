@@ -3,6 +3,7 @@ tensorflow
 opencv-python-headless
 pandas
 numpy
+gdown
 pillow
 seaborn
 matplotlib
