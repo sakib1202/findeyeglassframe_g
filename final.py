@@ -18,12 +18,13 @@ import matplotlib.pyplot as plt
 import os
 import seaborn as sns
 
-folder_path = 'C:\\Users\\HP\\Videos\\New folder\\Face set'
+import os
 
+base_directory = r"C:\Users\HP\Videos\New folder\Face set"
 
-TRAIN_DATASET="C:\\Users\\HP\\Videos\\New folder\\Face set\\Train face"
-TEST_DATASET="C:\\Users\\HP\\Videos\\New folder\\Face set\\Test face"
-TEST_FRAME="C:\\Users\\HP\\Videos\\New folder\\Face set\\Train frame"
+subdir_path = os.path.join(base_directory, "Train face")
+subdir_path = os.path.join(base_directory, "Test face")
+subdir_path = os.path.join(base_directory, "Train Frame")
 
 CATEGORIES=["heart","long","oval","round","square"]
 
@@ -35,9 +36,9 @@ def validate_subfolders(path, categories):
         if not os.path.exists(category_path):
             missing_folders.append(category)
     return missing_folders
-TRAIN_DATASET="C:\\Users\\HP\\Videos\\New folder\\Face set\\Train face"
-TEST_DATASET="C:\\Users\\HP\\Videos\\New folder\\Face set\\Test face"
-TEST_FRAME="C:\\Users\\HP\\Videos\\New folder\\Face set\\Train frame"
+subdir_path = os.path.join(base_directory, "Train face")
+subdir_path = os.path.join(base_directory, "Test face")
+subdir_path = os.path.join(base_directory, "Train Frame")
 
 CATEGORIES=["heart","long","oval","round","square"]
 
@@ -62,9 +63,9 @@ if missing_folders_datatest:
 else:
     print("All subfolders present in TEST_DATASET path.")
 
-TRAIN_DATASET="C:\\Users\\HP\\Videos\\New folder\\Face set\\Train face"
-TEST_DATASET="C:\\Users\\HP\\Videos\\New folder\\Face set\\Test face"
-TEST_FRAME="C:\\Users\\HP\\Videos\\New folder\\Face set\\Train frame"
+subdir_path = os.path.join(base_directory, "Train face")
+subdir_path = os.path.join(base_directory, "Test face")
+subdir_path = os.path.join(base_directory, "Train Frame")
 
 CATEGORIES=["heart","long","oval","round","square"]
 
@@ -76,9 +77,9 @@ def validate_subfolders(path, categories):
         if not os.path.exists(category_path):
             missing_folders.append(category)
     return missing_folders
-TRAIN_DATASET="C:\\Users\\HP\\Videos\\New folder\\Face set\\Train face"
-TEST_DATASET="C:\\Users\\HP\\Videos\\New folder\\Face set\\Test face"
-TEST_FRAME="C:\\Users\\HP\\Videos\\New folder\\Face set\\Train frame"
+subdir_path = os.path.join(base_directory, "Train face")
+subdir_path = os.path.join(base_directory, "Test face")
+subdir_path = os.path.join(base_directory, "Train Frame")
 
 CATEGORIES=["heart","long","oval","round","square"]
 
@@ -218,8 +219,8 @@ from tensorflow.keras.preprocessing import image
 import numpy as np
 import os
 
-TRAIN_DATASET="C:\\Users\\HP\\Videos\\New folder\\Face set\\Train face"
-TEST_DATASET="C:\\Users\\HP\\Videos\\New folder\\Face set\\Test face"
+subdir_path = os.path.join(base_directory, "Train face")
+subdir_path = os.path.join(base_directory, "Test face")
 CATEGORIES = ["heart", "long", "oval", "round", "square"]
 
 IMG_SIZE = (224, 224)
