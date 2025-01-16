@@ -4,5 +4,6 @@ opencv-python-headless
 pandas
 numpy
 pillow
+seaborn
 matplotlib
 gunicorn
