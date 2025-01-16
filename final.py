@@ -287,9 +287,28 @@ import os
 import matplotlib.pyplot as plt
 import cv2 as cv
 
-DATASET = "C:\\Users\\HP\\Videos\\New folder\\Face set\\Train frame"
+# Imports
+import os
 
-CATEGORIES = ["heart", "long", "oval", "round", "square"]
+# Paths and categories
+TRAIN_DATASET = r"C:\Users\HP\Videos\New folder\Face set\Train face"
+CATEGORIES = ['heart', 'long', 'oval', 'round', 'square']
+
+# Function to validate subfolders
+def validate_subfolders(path, categories):
+    missing_folders = [category for category in categories if not os.path.exists(os.path.join(path, category))]
+    return missing_folders
+
+# Validate subfolders
+missing_folders_datatrain = validate_subfolders(path=TRAIN_DATASET, categories=CATEGORIES)
+
+if missing_folders_datatrain:
+    print(f"Missing subfolders in TRAIN_DATASET path: {missing_folders_datatrain}")
+else:
+    print("All required subfolders exist in the TRAIN_DATASET path.")
+
+# Rest of your script logic (e.g., data loading, model training)
+
 
 fig, axes = plt.subplots(2, 3, figsize=(15, 10))
 
