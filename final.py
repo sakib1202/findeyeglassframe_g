@@ -24,9 +24,9 @@ def validate_subfolders(path, categories):
         if not os.path.exists(category_path):
             missing_folders.append(category)
     return missing_folders
-TRAIN_DATASET="C:\Users\HP\Videos\New folder\Face set\Train face"
-TEST_DATASET="C:\Users\HP\Videos\New folder\Face set\Test face"
-TEST_FRAME="C:\Users\HP\Videos\New folder\Face set\Train frame"
+TRAIN_DATASET=r"C:\Users\HP\Videos\New folder\Face set\Train face"
+TEST_DATASET=r"C:\Users\HP\Videos\New folder\Face set\Test face"
+TEST_FRAME=r"C:\Users\HP\Videos\New folder\Face set\Train frame"
 
 CATEGORIES=["heart","long","oval","round","square"]
 
