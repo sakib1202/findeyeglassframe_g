@@ -1,49 +1,108 @@
-# -*- coding: utf-8 -*-
-"""final.ipynb"""
 
-# Imports
+TRAIN_DATASET="C:\Users\HP\Videos\New folder\Face set\Train face"
+TEST_DATASET="C:\Users\HP\Videos\New folder\Face set\Test face"
+TEST_FRAME="C:\Users\HP\Videos\New folder\Face set\Train frame"
+
+CATEGORIES=["heart","long","oval","round","square"]
+
+import os
+def validate_subfolders(path, categories):
+    missing_folders = []
+    for category in categories:
+        category_path = os.path.join(path, category)
+        if not os.path.exists(category_path):
+            missing_folders.append(category)
+    return missing_folders
+TRAIN_DATASET="C:\Users\HP\Videos\New folder\Face set\Train face"
+TEST_DATASET="C:\Users\HP\Videos\New folder\Face set\Test face"
+TEST_FRAME="C:\Users\HP\Videos\New folder\Face set\Train frame"
+
+CATEGORIES=["heart","long","oval","round","square"]
+
+import os
+def validate_subfolders(path, categories):
+    missing_folders = []
+    for category in categories:
+        category_path = os.path.join(path, category)
+        if not os.path.exists(category_path):
+            missing_folders.append(category)
+    return missing_folders
+
+missing_folders_datatrain = validate_subfolders(path=TRAIN_DATASET, categories=CATEGORIES)
+if missing_folders_datatrain:
+    print("Missing subfolders in TRAIN_DATASET path:", missing_folders_datatrain)
+else:
+    print("All subfolders present in TRAIN_DATASET path.")
+
+missing_folders_datatest = validate_subfolders(TEST_DATASET, CATEGORIES)
+if missing_folders_datatest:
+    print("Missing subfolders in TEST_DATASET path:", missing_folders_datatest)
+else:
+    print("All subfolders present in TEST_DATASET path.")
+
+TRAIN_DATASET="C:\Users\HP\Videos\New folder\Face set\Train face"
+TEST_DATASET="C:\Users\HP\Videos\New folder\Face set\Test face"
+TEST_FRAME="C:\Users\HP\Videos\New folder\Face set\Train frame"
+
+CATEGORIES=["heart","long","oval","round","square"]
+
+import os
+def validate_subfolders(path, categories):
+    missing_folders = []
+    for category in categories:
+        category_path = os.path.join(path, category)
+        if not os.path.exists(category_path):
+            missing_folders.append(category)
+    return missing_folders
+TRAIN_DATASET="C:\Users\HP\Videos\New folder\Face set\Train face"
+TEST_DATASET="C:\Users\HP\Videos\New folder\Face set\Test face"
+TEST_FRAME="C:\Users\HP\Videos\New folder\Face set\Train frame"
+
+CATEGORIES=["heart","long","oval","round","square"]
+
+import os
+def validate_subfolders(path, categories):
+    missing_folders = []
+    for category in categories:
+        category_path = os.path.join(path, category)
+        if not os.path.exists(category_path):
+            missing_folders.append(category)
+    return missing_folders
+
+missing_folders_datatrain = validate_subfolders(path=TRAIN_DATASET, categories=CATEGORIES)
+if missing_folders_datatrain:
+    print("Missing subfolders in TRAIN_DATASET path:", missing_folders_datatrain)
+else:
+    print("All subfolders present in TRAIN_DATASET path.")
+
+missing_folders_datatest = validate_subfolders(TEST_DATASET, CATEGORIES)
+if missing_folders_datatest:
+    print("Missing subfolders in TEST_DATASET path:", missing_folders_datatest)
+else:
+    print("All subfolders present in TEST_DATASET path.")
+CATEGORIES=["heart","long","oval","round","square"]
+
+missing_folders_datatest = validate_subfolders(TEST_DATASET, CATEGORIES)
+if missing_folders_datatest:
+    print("Missing subfolders in TEST_DATASET path:", missing_folders_datatest)
+else:
+    print("All subfolders present in TEST_DATASET path.")
+CATEGORIES=["heart","long","oval","round","square"]
+
 import os
 import numpy as np
 import tensorflow as tf
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout
-from tensorflow.keras.utils import load_img, img_to_array  # Updated imports for compatibility
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
-import matplotlib.pyplot as plt
-import cv2 as cv
 
-# Define dataset paths
-TRAIN_DATASET = r"C:\Users\HP\Videos\New folder\Face set\Train face"
-TEST_DATASET = r"C:\Users\HP\Videos\New folder\Face set\Test face"
-FRAME_DATASET = r"C:\Users\HP\Videos\New folder\Face set\Train frame"
+train_dir = "/content/drive/MyDrive/Face set/Train face"
+test_dir = "/content/drive/MyDrive/Face set/Test face"
+frame_dir = "/content/drive/MyDrive/Face set/Train frame"
 
-# Categories for face shapes
-CATEGORIES = ['heart', 'long', 'oval', 'round', 'square']
+img_size = (128, 128)
+batch_size = 32
 
-# Validate subfolders
-def validate_subfolders(path, categories):
-    missing_folders = [category for category in categories if not os.path.exists(os.path.join(path, category))]
-    return missing_folders
-
-# Validate training dataset subfolders
-missing_folders_datatrain = validate_subfolders(TRAIN_DATASET, CATEGORIES)
-if missing_folders_datatrain:
-    print(f"Missing subfolders in TRAIN_DATASET path: {missing_folders_datatrain}")
-else:
-    print("All required subfolders exist in the TRAIN_DATASET path.")
-
-# Validate testing dataset subfolders
-missing_folders_datatest = validate_subfolders(TEST_DATASET, CATEGORIES)
-if missing_folders_datatest:
-    print(f"Missing subfolders in TEST_DATASET path: {missing_folders_datatest}")
-else:
-    print("All required subfolders exist in the TEST_DATASET path.")
-
-# Image data preparation
-IMG_SIZE = (128, 128)
-BATCH_SIZE = 32
-
-# Training and testing data generators
 train_datagen = ImageDataGenerator(
     rescale=1.0 / 255.0,
     rotation_range=20,
@@ -54,36 +113,62 @@ train_datagen = ImageDataGenerator(
 
 test_datagen = ImageDataGenerator(rescale=1.0 / 255.0)
 
+import os
+directory = "/content/drive/MyDrive/Face set/"
+print(os.listdir(directory))
+
+
+train_dir = "/content/drive/MyDrive/Face set/Train face"
+test_dir = "/content/drive/MyDrive/Face set/Test face"
+frame_dir = "/content/drive/MyDrive/Face set/Train frame"
+
+if os.path.exists(train_dir):
+    print(f"Training directory found: {train_dir}")
+else:
+    print(f"Training directory NOT found: {train_dir}")
+
+     # Unzip again if extracted to an incorrect location
+
+if os.path.exists(test_dir):
+    print(f"Testing directory found: {test_dir}")
+else:
+    print(f"Testing directory NOT found: {test_dir}")
+
+if os.path.exists(frame_dir):
+    print(f"Training directory found: {frame_dir}")
+else:
+    print(f"Training directory NOT found: {frame_dir}")
+
+
+
 train_data = train_datagen.flow_from_directory(
-    TRAIN_DATASET,
-    target_size=IMG_SIZE,
-    batch_size=BATCH_SIZE,
+    train_dir,
+    target_size=img_size,
+    batch_size=batch_size,
     class_mode="categorical"
 )
 
 test_data = test_datagen.flow_from_directory(
-    TEST_DATASET,
-    target_size=IMG_SIZE,
-    batch_size=BATCH_SIZE,
+    test_dir,
+    target_size=img_size,
+    batch_size=batch_size,
     class_mode="categorical"
 )
 
 frame_datagen = ImageDataGenerator(rescale=1.0 / 255.0)
 
 frame_data = frame_datagen.flow_from_directory(
-    FRAME_DATASET,
-    target_size=IMG_SIZE,
-    batch_size=BATCH_SIZE,
+    frame_dir,
+    target_size=img_size,
+    batch_size=batch_size,
     class_mode="categorical"
 )
 
-# Display class names
 class_names = list(train_data.class_indices.keys())
 print(f"Class Names: {class_names}")
 
-# Model definition
 model = Sequential([
-    Conv2D(32, (3, 3), activation='relu', input_shape=(IMG_SIZE[0], IMG_SIZE[1], 3)),
+    Conv2D(32, (3, 3), activation='relu', input_shape=(img_size[0], img_size[1], 3)),
     MaxPooling2D((2, 2)),
     Conv2D(64, (3, 3), activation='relu'),
     MaxPooling2D((2, 2)),
@@ -92,15 +177,61 @@ model = Sequential([
     Flatten(),
     Dense(128, activation='relu'),
     Dropout(0.5),
-    Dense(len(CATEGORIES), activation='softmax')
+    Dense(len(train_data.class_indices), activation='softmax')
 ])
 
 model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 
-# Model training
-model.fit(train_data, epochs=20, validation_data=test_data)
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout
+from tensorflow.keras.optimizers import Adam
+from tensorflow.keras.preprocessing import image
+import numpy as np
+import os
 
-# Recommendations for glasses based on face shape
+TRAIN_DATASET="C:\Users\HP\Videos\New folder\Face set\Train face"
+TEST_DATASET="C:\Users\HP\Videos\New folder\Face set\Test face"
+CATEGORIES = ["heart", "long", "oval", "round", "square"]
+
+IMG_SIZE = (224, 224)
+BATCH_SIZE = 32
+
+datagen = ImageDataGenerator(rescale=1./255, validation_split=0.2)
+
+train_generator = datagen.flow_from_directory(
+    TRAIN_DATASET,
+    target_size=IMG_SIZE,
+    batch_size=BATCH_SIZE,
+    class_mode='categorical',
+    subset='training'
+)
+
+validation_generator = datagen.flow_from_directory(
+    TRAIN_DATASET,
+    target_size=IMG_SIZE,
+    batch_size=BATCH_SIZE,
+    class_mode='categorical',
+    subset='validation'
+)
+
+model = Sequential([
+    Conv2D(32, (3, 3), activation='relu', input_shape=(224, 224, 3)),
+    MaxPooling2D(2, 2),
+    Conv2D(64, (3, 3), activation='relu'),
+    MaxPooling2D(2, 2),
+    Flatten(),
+    Dense(128, activation='relu'),
+    Dropout(0.5),
+    Dense(len(CATEGORIES), activation='softmax')
+])
+
+model.compile(optimizer=Adam(learning_rate=0.001),
+              loss='categorical_crossentropy',
+              metrics=['accuracy'])
+
+model.fit(train_generator, epochs=20, validation_data=validation_generator)
+
 recommendations = {
     "heart": "Round or oval frames",
     "long": "Tall frames with decorative temples",
@@ -109,31 +240,34 @@ recommendations = {
     "square": "Round or oval frames"
 }
 
-# Function to recommend glasses
 def recommend_glasses(image_path):
-    # Load and preprocess image
-    img = load_img(image_path, target_size=IMG_SIZE)  # Updated to use tf.keras.utils.load_img
-    img_array = img_to_array(img) / 255.0  # Updated to use tf.keras.utils.img_to_array
+    img = image.load_img(image_path, target_size=IMG_SIZE)
+    img_array = image.img_to_array(img) / 255.0
     img_array = np.expand_dims(img_array, axis=0)
-    
-    # Make prediction
     prediction = model.predict(img_array)
     predicted_index = np.argmax(prediction)
     predicted_shape = CATEGORIES[predicted_index]
     return predicted_shape, recommendations.get(predicted_shape, "No recommendation available")
 
-# Example usage
-test_image_path = r"C:\Users\HP\Videos\New folder\Face set\example.jpg"  # Update with an example image path
+test_image_path = "/content/drive/MyDrive/vaiya.jpg"
 predicted_shape, frame_recommendation = recommend_glasses(test_image_path)
 print(f"Predicted Face Shape: {predicted_shape}")
 print(f"Recommended Glasses Frame: {frame_recommendation}")
 
-# Visualization of categories
+import os
+import matplotlib.pyplot as plt
+import cv2 as cv
+
+DATASET = "/content/drive/MyDrive/Face set/Train frame"
+
+CATEGORIES = ["heart", "long", "oval", "round", "square"]
+
 fig, axes = plt.subplots(2, 3, figsize=(15, 10))
+
 axes = axes.flatten()
 
 for i, category in enumerate(CATEGORIES):
-    path = os.path.join(TRAIN_DATASET, category)
+    path = os.path.join(DATASET, category)
     img_files = os.listdir(path)
 
     if img_files:
