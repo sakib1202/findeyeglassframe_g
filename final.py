@@ -135,7 +135,7 @@ train_datagen = ImageDataGenerator(
 test_datagen = ImageDataGenerator(rescale=1.0 / 255.0)
 
 import os
-!ls /content
+!ls "/content/drive/MyDrive/Face set/"
 
 train_dir = "/content/drive/MyDrive/Face set/Train face"
 test_dir = "/content/drive/MyDrive/Face set/Test face"
