@@ -135,6 +135,14 @@ train_datagen = ImageDataGenerator(
 
 test_datagen = ImageDataGenerator(rescale=1.0 / 255.0)
 
+import os
+directory = r"C:\Users\HP\Videos\New folder\Face set"
+if os.path.exists(directory):
+    # List files and subdirectories
+    print("Contents of the directory:")
+    print(os.listdir(directory))
+else:
+    print(f"Error: Directory does not exist - {directory}")
 
 
 
