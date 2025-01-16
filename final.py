@@ -50,6 +50,24 @@ def validate_subfolders(path, categories):
         if not os.path.exists(category_path):
             missing_folders.append(category)
     return missing_folders
+import os
+
+# Define the paths and categories at the top of your script
+TRAIN_DATASET = r"C:\Users\HP\Videos\New folder\Face set\Train face"  # Replace with your actual path
+CATEGORIES = ['heart', 'long', 'oval', 'round', 'square']
+
+# Function to validate subfolders
+def validate_subfolders(path, categories):
+    missing_folders = [category for category in categories if not os.path.exists(os.path.join(path, category))]
+    return missing_folders
+
+# Validate subfolders
+missing_folders_datatrain = validate_subfolders(path=TRAIN_DATASET, categories=CATEGORIES)
+
+if missing_folders_datatrain:
+    print(f"Missing subfolders in TRAIN_DATASET path: {missing_folders_datatrain}")
+else:
+    print("All required subfolders exist in the TRAIN_DATASET path.")
 
 missing_folders_datatrain = validate_subfolders(path=TRAIN_DATASET, categories=CATEGORIES)
 if missing_folders_datatrain:
