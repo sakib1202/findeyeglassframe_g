@@ -1,4 +1,15 @@
 
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense
+from tensorflow.keras.optimizers import Adam
+import pandas as pd
+import cv2 as cv
+import numpy as np
+import matplotlib.pyplot as plt
+import os
+import seaborn as sns
+
+folder_path = 'C:\\Users\\HP\\Videos\\New folder\\Face set'
 TRAIN_DATASET="C:\Users\HP\Videos\New folder\Face set\Train face"
 TEST_DATASET="C:\Users\HP\Videos\New folder\Face set\Test face"
 TEST_FRAME="C:\Users\HP\Videos\New folder\Face set\Train frame"
