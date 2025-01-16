@@ -1,6 +1,7 @@
 flask
 tensorflow
-opencv-python-headlesspandas
+opencv-python-headless
+pandas
 numpy
 pillow
 gunicorn
