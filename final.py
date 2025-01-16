@@ -75,6 +75,35 @@ if missing_folders_datatrain:
 else:
     print("All subfolders present in TRAIN_DATASET path.")
 
+import os
+
+# Define dataset paths
+TRAIN_DATASET = r"C:\Users\HP\Videos\New folder\Face set\Train face"  # Update to your train dataset path
+TEST_DATASET = r"C:\Users\HP\Videos\New folder\Face set\Test face"    # Update to your test dataset path
+
+# Define categories
+CATEGORIES = ['heart', 'long', 'oval', 'round', 'square']
+
+# Function to validate subfolders
+def validate_subfolders(path, categories):
+    missing_folders = [category for category in categories if not os.path.exists(os.path.join(path, category))]
+    return missing_folders
+
+# Validate training dataset subfolders
+missing_folders_datatrain = validate_subfolders(TRAIN_DATASET, CATEGORIES)
+if missing_folders_datatrain:
+    print(f"Missing subfolders in TRAIN_DATASET path: {missing_folders_datatrain}")
+else:
+    print("All required subfolders exist in the TRAIN_DATASET path.")
+
+# Validate testing dataset subfolders
+missing_folders_datatest = validate_subfolders(TEST_DATASET, CATEGORIES)
+if missing_folders_datatest:
+    print(f"Missing subfolders in TEST_DATASET path: {missing_folders_datatest}")
+else:
+    print("All required subfolders exist in the TEST_DATASET path.")
+
+
 missing_folders_datatest = validate_subfolders(TEST_DATASET, CATEGORIES)
 if missing_folders_datatest:
     print("Missing subfolders in TEST_DATASET path:", missing_folders_datatest)
