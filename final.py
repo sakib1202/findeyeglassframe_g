@@ -135,9 +135,7 @@ train_datagen = ImageDataGenerator(
 
 test_datagen = ImageDataGenerator(rescale=1.0 / 255.0)
 
-import os
-directory ='C:\\Users\\HP\\Videos\\New folder\\Face set'
-print(os.listdir(directory))
+
 
 
 train_dir="C:\\Users\\HP\\Videos\\New folder\\Face set\\Train face"
