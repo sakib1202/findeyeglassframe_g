@@ -20,9 +20,10 @@ import seaborn as sns
 
 folder_path = 'C:\\Users\\HP\\Videos\\New folder\\Face set'
 
-TRAIN_DATASET="/content/drive/MyDrive/Face set/Train face"
-TEST_DATASET="/content/drive/MyDrive/Face set/Test face"
-TEST_FRAME="/content/drive/MyDrive/Face set/Train frame"
+
+TRAIN_DATASET="C:\Users\HP\Videos\New folder\Face set\Train face"
+TEST_DATASET="C:\Users\HP\Videos\New folder\Face set\Test face"
+TEST_FRAME="C:\Users\HP\Videos\New folder\Face set\Train frame"
 
 CATEGORIES=["heart","long","oval","round","square"]
 
@@ -34,9 +35,9 @@ def validate_subfolders(path, categories):
         if not os.path.exists(category_path):
             missing_folders.append(category)
     return missing_folders
-TRAIN_DATASET="/content/drive/MyDrive/Face set/Train face"
-TEST_DATASET="/content/drive/MyDrive/Face set/Test face"
-TEST_FRAME="/content/drive/MyDrive/Face set/Train frame"
+TRAIN_DATASET="C:\Users\HP\Videos\New folder\Face set\Train face"
+TEST_DATASET="C:\Users\HP\Videos\New folder\Face set\Test face"
+TEST_FRAME="C:\Users\HP\Videos\New folder\Face set\Train frame"
 
 CATEGORIES=["heart","long","oval","round","square"]
 
@@ -61,9 +62,9 @@ if missing_folders_datatest:
 else:
     print("All subfolders present in TEST_DATASET path.")
 
-TRAIN_DATASET="/content/drive/MyDrive/Face set/Train face"
-TEST_DATASET="/content/drive/MyDrive/Face set/Test face"
-TEST_FRAME="/content/drive/MyDrive/Face set/Train frame"
+TRAIN_DATASET="C:\Users\HP\Videos\New folder\Face set\Train face"
+TEST_DATASET="C:\Users\HP\Videos\New folder\Face set\Test face"
+TEST_FRAME="C:\Users\HP\Videos\New folder\Face set\Train frame"
 
 CATEGORIES=["heart","long","oval","round","square"]
 
@@ -75,9 +76,9 @@ def validate_subfolders(path, categories):
         if not os.path.exists(category_path):
             missing_folders.append(category)
     return missing_folders
-TRAIN_DATASET="/content/drive/MyDrive/Face set/Train face"
-TEST_DATASET="/content/drive/MyDrive/Face set/Test face"
-TEST_FRAME="/content/drive/MyDrive/Face set/Train frame"
+TRAIN_DATASET="C:\Users\HP\Videos\New folder\Face set\Train face"
+TEST_DATASET="C:\Users\HP\Videos\New folder\Face set\Test face"
+TEST_FRAME="C:\Users\HP\Videos\New folder\Face set\Train frame"
 
 CATEGORIES=["heart","long","oval","round","square"]
 
@@ -117,9 +118,9 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
-train_dir = "/content/drive/MyDrive/Face set/Train face"
-test_dir = "/content/drive/MyDrive/Face set/Test face"
-frame_dir = "/content/drive/MyDrive/Face set/Train frame"
+train_dir="C:\Users\HP\Videos\New folder\Face set\Train face"
+test_dir="C:\Users\HP\Videos\New folder\Face set\Test face"
+train_frame="C:\Users\HP\Videos\New folder\Face set\Train frame"
 
 img_size = (128, 128)
 batch_size = 32
@@ -139,9 +140,9 @@ directory = "/content/drive/MyDrive/Face set/"
 print(os.listdir(directory))
 
 
-train_dir = "/content/drive/MyDrive/Face set/Train face"
-test_dir = "/content/drive/MyDrive/Face set/Test face"
-frame_dir = "/content/drive/MyDrive/Face set/Train frame"
+train_dir="C:\Users\HP\Videos\New folder\Face set\Train face"
+test_dir="C:\Users\HP\Videos\New folder\Face set\Test face"
+train_frame="C:\Users\HP\Videos\New folder\Face set\Train frame"
 
 if os.path.exists(train_dir):
     print(f"Training directory found: {train_dir}")
@@ -211,8 +212,8 @@ from tensorflow.keras.preprocessing import image
 import numpy as np
 import os
 
-TRAIN_DATASET = "/content/drive/MyDrive/Face set/Train face"
-TEST_DATASET = "/content/drive/MyDrive/Face set/Test face"
+TRAIN_DATASET="C:\Users\HP\Videos\New folder\Face set\Train face"
+TEST_DATASET="C:\Users\HP\Videos\New folder\Face set\Test face"
 CATEGORIES = ["heart", "long", "oval", "round", "square"]
 
 IMG_SIZE = (224, 224)
