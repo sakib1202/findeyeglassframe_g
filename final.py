@@ -148,7 +148,7 @@ else:
 
 train_dir="C:\\Users\\HP\\Videos\\New folder\\Face set\\Train face"
 test_dir="C:\\Users\\HP\\Videos\\New folder\\Face set\\Test face"
-train_frame="C:\\Users\\HP\\Videos\\New folder\\Face set\\Train frame"
+frame_dir="C:\\Users\\HP\\Videos\\New folder\\Face set\\Train frame"
 
 if os.path.exists(train_dir):
     print(f"Training directory found: {train_dir}")
