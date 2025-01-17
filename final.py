@@ -33,6 +33,11 @@ TEST_FRAME=r"C:\Users\HP\Videos\New folder\Face set\Train frame"
 CATEGORIES=["heart","long","oval","round","square"]
 
 import os
+
+directory_path=r"C:\Users\HP\Videos\New folder\Face set" # Replace with the actual directory path
+files = os.listdir(directory_path)
+print(files)  # This will list the files in the directory
+
 def validate_subfolders(path, categories):
     missing_folders = []
     for category in categories:
