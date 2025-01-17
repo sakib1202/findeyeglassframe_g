@@ -135,7 +135,14 @@ train_datagen = ImageDataGenerator(
 test_datagen = ImageDataGenerator(rescale=1.0 / 255.0)
 
 import os
-!ls /content/drive/MyDrive/Face set
+
+# Path to your directory
+directory_path = "/content/drive/MyDrive/Face set"
+
+# List the files in the directory
+files = os.listdir(directory_path)
+print(files)
+
 
 train_dir = "/content/drive/MyDrive/Face set/Train face"
 test_dir = "/content/drive/MyDrive/Face set/Test face"
