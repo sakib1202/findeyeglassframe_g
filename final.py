@@ -127,7 +127,9 @@ train_datagen = ImageDataGenerator(
 test_datagen = ImageDataGenerator(rescale=1.0 / 255.0)
 
 import os
-print("\n".join(os.listdir(r"C:\Users\HP\sakib\findeyeglassframe_g-main\Face set")))
+path = r"C:\Users\HP\sakib\findeyeglassframe_g-main\Face set"
+print(f"Path: {path}")
+
 
 
 train_dir = r"C:\Users\HP\Videos\New folder\Face set\Train face"
