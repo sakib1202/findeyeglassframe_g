@@ -17,11 +17,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 import seaborn as sns
-# Replace this
-from google.colab import drive
-drive.mount('/content/drive')
 
-# With this (local file handling example)
 import os
 
 local_file_path = r"C:\Users\HP\Videos\New folder\Face set"
