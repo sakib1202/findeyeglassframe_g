@@ -27,10 +27,19 @@ def home():
 if __name__ == "--final--":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
 
+from pydrive.auth import GoogleAuth
+from pydrive.drive import GoogleDrive
 
-!pip install google.colab
-from google.colab import drive
-drive.mount('/content/drive')
+# Authenticate and create the PyDrive client
+gauth = GoogleAuth()
+gauth.LocalWebserverAuth()
+drive = GoogleDrive(gauth)
+
+# Download a file from Google Drive
+file_id = '11PNEFOYtE4wG6fYLiehPk2U07Qw-rX99'
+downloaded = drive.CreateFile({'id': '11PNEFOYtE4wG6fYLiehPk2U07Qw-rX99'})
+downloaded.GetContentFile('Face Set')
+
 
 TRAIN_DATASET="/content/drive/MyDrive/Face set/Train face"
 TEST_DATASET="/content/drive/MyDrive/Face set/Test face"
