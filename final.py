@@ -16,16 +16,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 import seaborn as sns
-from flask import Flask
-
-app = Flask(__name__)
-
-@app.route("/")
-def home():
-    return "Hello, Render!"
-
-if __name__ == "--final--":
-    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
 
 from pydrive.auth import GoogleAuth
 from pydrive.drive import GoogleDrive
