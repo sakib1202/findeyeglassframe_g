@@ -34,7 +34,8 @@ CATEGORIES=["heart","long","oval","round","square"]
 
 import os
 
-directory_path = input("Enter the directory path:r"C:\Users\HP\Videos\New folder\Face set "")
+directory_path = input("Enter the directory path ( C:\\Users\\HP\\Videos\\New folder\\Face set): ")
+
 if os.path.exists(directory_path):
     files = os.listdir(directory_path)
     print(files)
