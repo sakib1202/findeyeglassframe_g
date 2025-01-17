@@ -294,7 +294,11 @@ import os
 import matplotlib.pyplot as plt
 import cv2 as cv
 
-DATASET = "/content/drive/MyDrive/Face set/Train frame"
+local_file_path = r"C:\Users\HP\Videos\New folder\Face set"
+if os.path.exists(local_file_path):
+    print("File exists!")
+else:
+    print("File not found!")
 
 CATEGORIES = ["heart", "long", "oval", "round", "square"]
 
