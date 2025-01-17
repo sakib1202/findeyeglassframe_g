@@ -16,8 +16,17 @@ import matplotlib.pyplot as plt
 import os
 import seaborn as sns
 
-from google.colab import drive
-drive.mount('/content/drive')
+import os
+
+# Replace with your actual path
+path = "/content/drive/MyDrive/Face set"
+
+try:
+    files = os.listdir(path)
+    print(files)
+except FileNotFoundError:
+    print(f"The directory {path} does not exist.")
+
 
 TRAIN_DATASET="/content/drive/MyDrive/Face set/Train face"
 TEST_DATASET="/content/drive/MyDrive/Face set/Test face"
@@ -134,7 +143,16 @@ train_datagen = ImageDataGenerator(
 test_datagen = ImageDataGenerator(rescale=1.0 / 255.0)
 
 import os
-!ls /content/drive/MyDrive/Face set
+
+# Replace with your actual path
+path = "/content/drive/MyDrive/Face set"
+
+try:
+    files = os.listdir(path)
+    print(files)
+except FileNotFoundError:
+    print(f"The directory {path} does not exist.")
+
 
 train_dir = "/content/drive/MyDrive/Face set/Train face"
 test_dir = "/content/drive/MyDrive/Face set/Test face"
