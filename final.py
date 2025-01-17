@@ -17,6 +17,7 @@ import matplotlib.pyplot as plt
 import os
 import seaborn as sns
 
+!pip install google.colab
 from google.colab import drive
 drive.mount('/content/drive')
 
