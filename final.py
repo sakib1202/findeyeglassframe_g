@@ -131,7 +131,7 @@ from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropou
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
 train_dir=r"C:\Users\HP\Videos\New folder\Face set\Train face"
-test_dirr"C:\Users\HP\Videos\New folder\Face set\Test face"
+test_dir=r"C:\Users\HP\Videos\New folder\Face set\Test face"
 frame_dir=r"C:\Users\HP\Videos\New folder\Face set\Train frame"
 
 img_size = (128, 128)
@@ -158,7 +158,7 @@ print(files)
 
 
 train_dir=r"C:\Users\HP\Videos\New folder\Face set\Train face"
-test_dirr"C:\Users\HP\Videos\New folder\Face set\Test face"
+test_dir=r"C:\Users\HP\Videos\New folder\Face set\Test face"
 frame_dir=r"C:\Users\HP\Videos\New folder\Face set\Train frame"
 
 if os.path.exists(train_dir):
