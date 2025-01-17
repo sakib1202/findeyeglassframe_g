@@ -17,19 +17,8 @@ import matplotlib.pyplot as plt
 import os
 import seaborn as sns
 
-from pydrive.auth import GoogleAuth
-from pydrive.drive import GoogleDrive
-
-# Authenticate and create the PyDrive client
-gauth = GoogleAuth()
-gauth.LocalWebserverAuth()
-drive = GoogleDrive(gauth)
-
-# Download a file from Google Drive
-file_id = '11PNEFOYtE4wG6fYLiehPk2U07Qw-rX99'
-downloaded = drive.CreateFile({'id': '11PNEFOYtE4wG6fYLiehPk2U07Qw-rX99'})
-downloaded.GetContentFile('Face Set')
-
+from google.colab import drive
+drive.mount('/content/drive')
 
 TRAIN_DATASET="/content/drive/MyDrive/Face set/Train face"
 TEST_DATASET="/content/drive/MyDrive/Face set/Test face"
