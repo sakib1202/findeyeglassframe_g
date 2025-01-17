@@ -6,5 +6,6 @@ numpy
 gdown
 pillow
 seaborn
+google-colab
 matplotlib
 gunicorn
