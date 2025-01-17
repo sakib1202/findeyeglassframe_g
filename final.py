@@ -34,9 +34,13 @@ CATEGORIES=["heart","long","oval","round","square"]
 
 import os
 
-directory_path="C:\\Users\\HP\\Videos\\New folder\\Face set" # Replace with the actual directory path
-files = os.listdir(directory_path)
-print(files)  # This will list the files in the directory
+directory_path = input(r"C:\Users\HP\Videos\New folder\Face set ")
+if os.path.exists(directory_path):
+    files = os.listdir(directory_path)
+    print(files)
+else:
+    print(f"The directory {directory_path} does not exist.")
+
 
 def validate_subfolders(path, categories):
     missing_folders = []
