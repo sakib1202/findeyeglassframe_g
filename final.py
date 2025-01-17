@@ -142,12 +142,12 @@ train_datagen = ImageDataGenerator(
 )
 
 test_datagen = ImageDataGenerator(rescale=1.0 / 255.0)
-
 import os
-
-# Path to your directory
-directory_path = "/content/drive/MyDrive/Face set"
-
+local_file_path = r"C:\Users\HP\Videos\New folder\Face set"
+if os.path.exists(local_file_path):
+    print("File exists!")
+else:
+    print("File not found!")
 # List the files in the directory
 files = os.listdir(directory_path)
 print(files)
