@@ -1,5 +1,3 @@
-
-
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense
 from tensorflow.keras.optimizers import Adam
@@ -16,92 +14,38 @@ TRAIN_DATASET =r"C:\Users\HP\Videos\New folder\Face set\Train face"
 TEST_DATASET = r"C:\Users\HP\Videos\New folder\Face set\Test face"
 TEST_FRAME = r"C:\Users\HP\Videos\New folder\Face set\Train frame"
 
-CATEGORIES=["heart","long","oval","round","square"]
-
 import os
-def validate_subfolders(path, categories):
-    missing_folders = []
-    for category in categories:
-        category_path = os.path.join(path, category)
-        if not os.path.exists(category_path):
-            missing_folders.append(category)
-    return missing_folders
-TRAIN_DATASET =r"C:\Users\HP\Videos\New folder\Face set\Train face"
+
+# Dataset paths
+TRAIN_DATASET = r"C:\Users\HP\Videos\New folder\Face set\Train face"
 TEST_DATASET = r"C:\Users\HP\Videos\New folder\Face set\Test face"
 TEST_FRAME = r"C:\Users\HP\Videos\New folder\Face set\Train frame"
+CATEGORIES = ["heart", "long", "oval", "round", "square"]
 
-CATEGORIES=["heart","long","oval","round","square"]
-
-import os
+# Function to validate subfolders
 def validate_subfolders(path, categories):
-    missing_folders = []
-    for category in categories:
-        category_path = os.path.join(path, category)
-        if not os.path.exists(category_path):
-            missing_folders.append(category)
+    """
+    Validate that all category subfolders exist in the given path.
+
+    Args:
+        path (str): The main dataset folder path.
+        categories (list): List of required category names.
+
+    Returns:
+        list: Missing subfolders.
+    """
+    missing_folders = [
+        category for category in categories if not os.path.exists(os.path.join(path, category))
+    ]
     return missing_folders
 
-missing_folders_datatrain = validate_subfolders(path=TRAIN_DATASET, categories=CATEGORIES)
-if missing_folders_datatrain:
-    print("Missing subfolders in TRAIN_DATASET path:", missing_folders_datatrain)
-else:
-    print("All subfolders present in TRAIN_DATASET path.")
-
-missing_folders_datatest = validate_subfolders(TEST_DATASET, CATEGORIES)
-if missing_folders_datatest:
-    print("Missing subfolders in TEST_DATASET path:", missing_folders_datatest)
-else:
-    print("All subfolders present in TEST_DATASET path.")
-
-TRAIN_DATASET =r"C:\Users\HP\Videos\New folder\Face set\Train face"
-TEST_DATASET = r"C:\Users\HP\Videos\New folder\Face set\Test face"
-TEST_FRAME = r"C:\Users\HP\Videos\New folder\Face set\Train frame"
-
-CATEGORIES=["heart","long","oval","round","square"]
-
-import os
-def validate_subfolders(path, categories):
-    missing_folders = []
-    for category in categories:
-        category_path = os.path.join(path, category)
-        if not os.path.exists(category_path):
-            missing_folders.append(category)
-    return missing_folders
-TRAIN_DATASET =r"C:\Users\HP\Videos\New folder\Face set\Train face"
-TEST_DATASET = r"C:\Users\HP\Videos\New folder\Face set\Test face"
-TEST_FRAME = r"C:\Users\HP\Videos\New folder\Face set\Train frame"
-
-CATEGORIES=["heart","long","oval","round","square"]
-
-import os
-def validate_subfolders(path, categories):
-    missing_folders = []
-    for category in categories:
-        category_path = os.path.join(path, category)
-        if not os.path.exists(category_path):
-            missing_folders.append(category)
-    return missing_folders
-
-missing_folders_datatrain = validate_subfolders(path=TRAIN_DATASET, categories=CATEGORIES)
-if missing_folders_datatrain:
-    print("Missing subfolders in TRAIN_DATASET path:", missing_folders_datatrain)
-else:
-    print("All subfolders present in TRAIN_DATASET path.")
-
-missing_folders_datatest = validate_subfolders(TEST_DATASET, CATEGORIES)
-if missing_folders_datatest:
-    print("Missing subfolders in TEST_DATASET path:", missing_folders_datatest)
-else:
-    print("All subfolders present in TEST_DATASET path.")
-CATEGORIES=["heart","long","oval","round","square"]
-
-missing_folders_datatest = validate_subfolders(TEST_DATASET, CATEGORIES)
-if missing_folders_datatest:
-    print("Missing subfolders in TEST_DATASET path:", missing_folders_datatest)
-else:
-    print("All subfolders present in TEST_DATASET path.")
-CATEGORIES=["heart","long","oval","round","square"]
-
+# Validate TRAIN and TEST datasets
+for dataset, dataset_name in [(TRAIN_DATASET, "TRAIN_DATASET"), (TEST_DATASET, "TEST_DATASET")]:
+    missing_folders = validate_subfolders(dataset, CATEGORIES)
+    if missing_folders:
+        print(f"Missing subfolders in {dataset_name}: {missing_folders}")
+    else:
+        print(f"All subfolders are present in {dataset_name}.")
 import os
 import numpy as np
 import tensorflow as tf
@@ -109,9 +53,9 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
-train_dir = r"C:\Users\HP\Videos\New folder\Face set\Train face"
-test_dir = r"C:\Users\HP\Videos\New folder\Face set\Test face"
-frame_dir = r"C:\Users\HP\Videos\New folder\Face set\Train frame"
+TRAIN_DATASET =r"C:\Users\HP\Videos\New folder\Face set\Train face"
+TEST_DATASET = r"C:\Users\HP\Videos\New folder\Face set\Test face"
+TEST_FRAME = r"C:\Users\HP\Videos\New folder\Face set\Train frame"
 
 img_size = (128, 128)
 batch_size = 32
@@ -127,21 +71,18 @@ train_datagen = ImageDataGenerator(
 test_datagen = ImageDataGenerator(rescale=1.0 / 255.0)
 
 import os
-path = r"C:\Users\HP\sakib\findeyeglassframe_g-main\Face set"
-print(f"Path: {path}")
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
-
-
+# Update paths for the local system
 train_dir = r"C:\Users\HP\Videos\New folder\Face set\Train face"
 test_dir = r"C:\Users\HP\Videos\New folder\Face set\Test face"
 frame_dir = r"C:\Users\HP\Videos\New folder\Face set\Train frame"
 
+# Check if directories exist
 if os.path.exists(train_dir):
     print(f"Training directory found: {train_dir}")
 else:
     print(f"Training directory NOT found: {train_dir}")
-
-     # Unzip again if extracted to an incorrect location
 
 if os.path.exists(test_dir):
     print(f"Testing directory found: {test_dir}")
@@ -149,12 +90,30 @@ else:
     print(f"Testing directory NOT found: {test_dir}")
 
 if os.path.exists(frame_dir):
-    print(f"Training directory found: {frame_dir}")
+    print(f"Frame directory found: {frame_dir}")
 else:
-    print(f"Training directory NOT found: {frame_dir}")
+    print(f"Frame directory NOT found: {frame_dir}")
 
+# Parameters for data generators
+img_size = (224, 224)  # Example size, adjust as needed
+batch_size = 32
 
+# Data augmentation for training
+train_datagen = ImageDataGenerator(
+    rescale=1.0 / 255.0,
+    rotation_range=20,
+    width_shift_range=0.2,
+    height_shift_range=0.2,
+    shear_range=0.2,
+    zoom_range=0.2,
+    horizontal_flip=True,
+    fill_mode="nearest"
+)
 
+# Data generator for testing
+test_datagen = ImageDataGenerator(rescale=1.0 / 255.0)
+
+# Create training data generator
 train_data = train_datagen.flow_from_directory(
     train_dir,
     target_size=img_size,
@@ -162,6 +121,7 @@ train_data = train_datagen.flow_from_directory(
     class_mode="categorical"
 )
 
+# Create testing data generator
 test_data = test_datagen.flow_from_directory(
     test_dir,
     target_size=img_size,
@@ -169,6 +129,7 @@ test_data = test_datagen.flow_from_directory(
     class_mode="categorical"
 )
 
+# Create frame data generator
 frame_datagen = ImageDataGenerator(rescale=1.0 / 255.0)
 
 frame_data = frame_datagen.flow_from_directory(
@@ -204,8 +165,9 @@ from tensorflow.keras.preprocessing import image
 import numpy as np
 import os
 
-TRAIN_DATASET =r"C:\Users\HP\Videos\New folder\Face set\Train face"
+TRAIN_DATASET = r"C:\Users\HP\Videos\New folder\Face set\Train face"
 TEST_DATASET = r"C:\Users\HP\Videos\New folder\Face set\Test face"
+
 CATEGORIES = ["heart", "long", "oval", "round", "square"]
 
 IMG_SIZE = (224, 224)
@@ -272,6 +234,7 @@ import os
 import matplotlib.pyplot as plt
 import cv2 as cv
 
+DATASET = r"C:\Users\HP\Videos\New folder\Face set\Train frame"
 
 CATEGORIES = ["heart", "long", "oval", "round", "square"]
 
@@ -280,7 +243,7 @@ fig, axes = plt.subplots(2, 3, figsize=(15, 10))
 axes = axes.flatten()
 
 for i, category in enumerate(CATEGORIES):
-    path = os.path.join(train_dir, category)
+    path = os.path.join(DATASET, category)
     img_files = os.listdir(path)
 
     if img_files:
