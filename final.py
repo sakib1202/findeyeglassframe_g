@@ -1,23 +1,249 @@
+
+
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense
+from tensorflow.keras.optimizers import Adam
+import pandas as pd
+import cv2 as cv
+import numpy as np
+import matplotlib.pyplot as plt
+import os
+import seaborn as sns
+
+
+
+TRAIN_DATASET =r"C:\Users\HP\sakib\findeyeglassframe_g-main\Face set\Train face"
+TEST_DATASET = r"C:\Users\HP\sakib\findeyeglassframe_g-main\Face set\Test face"
+TEST_FRAME = r"C:\Users\HP\sakib\findeyeglassframe_g-main\Face set\Train frame"
+
+CATEGORIES=["heart","long","oval","round","square"]
+
+import os
+def validate_subfolders(path, categories):
+    missing_folders = []
+    for category in categories:
+        category_path = os.path.join(path, category)
+        if not os.path.exists(category_path):
+            missing_folders.append(category)
+    return missing_folders
+TRAIN_DATASET =r"C:\Users\HP\sakib\findeyeglassframe_g-main\Face set\Train face"
+TEST_DATASET = r"C:\Users\HP\sakib\findeyeglassframe_g-main\Face set\Test face"
+TEST_FRAME = r"C:\Users\HP\sakib\findeyeglassframe_g-main\Face set\Train frame"
+
+CATEGORIES=["heart","long","oval","round","square"]
+
+import os
+def validate_subfolders(path, categories):
+    missing_folders = []
+    for category in categories:
+        category_path = os.path.join(path, category)
+        if not os.path.exists(category_path):
+            missing_folders.append(category)
+    return missing_folders
+
+missing_folders_datatrain = validate_subfolders(path=TRAIN_DATASET, categories=CATEGORIES)
+if missing_folders_datatrain:
+    print("Missing subfolders in TRAIN_DATASET path:", missing_folders_datatrain)
+else:
+    print("All subfolders present in TRAIN_DATASET path.")
+
+missing_folders_datatest = validate_subfolders(TEST_DATASET, CATEGORIES)
+if missing_folders_datatest:
+    print("Missing subfolders in TEST_DATASET path:", missing_folders_datatest)
+else:
+    print("All subfolders present in TEST_DATASET path.")
+
+TRAIN_DATASET =r"C:\Users\HP\sakib\findeyeglassframe_g-main\Face set\Train face"
+TEST_DATASET = r"C:\Users\HP\sakib\findeyeglassframe_g-main\Face set\Test face"
+TEST_FRAME = r"C:\Users\HP\sakib\findeyeglassframe_g-main\Face set\Train frame"
+
+CATEGORIES=["heart","long","oval","round","square"]
+
+import os
+def validate_subfolders(path, categories):
+    missing_folders = []
+    for category in categories:
+        category_path = os.path.join(path, category)
+        if not os.path.exists(category_path):
+            missing_folders.append(category)
+    return missing_folders
+TRAIN_DATASET =r"C:\Users\HP\sakib\findeyeglassframe_g-main\Face set\Train face"
+TEST_DATASET = r"C:\Users\HP\sakib\findeyeglassframe_g-main\Face set\Test face"
+TEST_FRAME = r"C:\Users\HP\sakib\findeyeglassframe_g-main\Face set\Train frame"
+
+CATEGORIES=["heart","long","oval","round","square"]
+
+import os
+def validate_subfolders(path, categories):
+    missing_folders = []
+    for category in categories:
+        category_path = os.path.join(path, category)
+        if not os.path.exists(category_path):
+            missing_folders.append(category)
+    return missing_folders
+
+missing_folders_datatrain = validate_subfolders(path=TRAIN_DATASET, categories=CATEGORIES)
+if missing_folders_datatrain:
+    print("Missing subfolders in TRAIN_DATASET path:", missing_folders_datatrain)
+else:
+    print("All subfolders present in TRAIN_DATASET path.")
+
+missing_folders_datatest = validate_subfolders(TEST_DATASET, CATEGORIES)
+if missing_folders_datatest:
+    print("Missing subfolders in TEST_DATASET path:", missing_folders_datatest)
+else:
+    print("All subfolders present in TEST_DATASET path.")
+CATEGORIES=["heart","long","oval","round","square"]
+
+missing_folders_datatest = validate_subfolders(TEST_DATASET, CATEGORIES)
+if missing_folders_datatest:
+    print("Missing subfolders in TEST_DATASET path:", missing_folders_datatest)
+else:
+    print("All subfolders present in TEST_DATASET path.")
+CATEGORIES=["heart","long","oval","round","square"]
+
 import os
 import numpy as np
 import tensorflow as tf
-from flask import Flask, request, jsonify, render_template
-from tensorflow.keras.models import load_model
-from tensorflow.keras.preprocessing import image
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
+
+train_dir =r"C:\Users\HP\sakib\findeyeglassframe_g-main\Face set\Train face"
+test_dir = r"C:\Users\HP\sakib\findeyeglassframe_g-main\Face set\Test face"
+frame_dir =r"C:\Users\HP\sakib\findeyeglassframe_g-main\Face set\Train frame"
+
+img_size = (128, 128)
+batch_size = 32
+
+train_datagen = ImageDataGenerator(
+    rescale=1.0 / 255.0,
+    rotation_range=20,
+    width_shift_range=0.2,
+    height_shift_range=0.2,
+    horizontal_flip=True
+)
+
+test_datagen = ImageDataGenerator(rescale=1.0 / 255.0)
+
+import os
+print("\n".join(os.listdir(r"C:\Users\HP\sakib\findeyeglassframe_g-main\Face set")))
+
+
+train_dir =r"C:\Users\HP\sakib\findeyeglassframe_g-main\Face set\Train face"
+test_dir = r"C:\Users\HP\sakib\findeyeglassframe_g-main\Face set\Test face"
+frame_dir =r"C:\Users\HP\sakib\findeyeglassframe_g-main\Face set\Train frame"
+
+if os.path.exists(train_dir):
+    print(f"Training directory found: {train_dir}")
+else:
+    print(f"Training directory NOT found: {train_dir}")
+
+     # Unzip again if extracted to an incorrect location
+
+if os.path.exists(test_dir):
+    print(f"Testing directory found: {test_dir}")
+else:
+    print(f"Testing directory NOT found: {test_dir}")
+
+if os.path.exists(frame_dir):
+    print(f"Training directory found: {frame_dir}")
+else:
+    print(f"Training directory NOT found: {frame_dir}")
+
+
+
+train_data = train_datagen.flow_from_directory(
+    train_dir,
+    target_size=img_size,
+    batch_size=batch_size,
+    class_mode="categorical"
+)
+
+test_data = test_datagen.flow_from_directory(
+    test_dir,
+    target_size=img_size,
+    batch_size=batch_size,
+    class_mode="categorical"
+)
+
+frame_datagen = ImageDataGenerator(rescale=1.0 / 255.0)
+
+frame_data = frame_datagen.flow_from_directory(
+    frame_dir,
+    target_size=img_size,
+    batch_size=batch_size,
+    class_mode="categorical"
+)
+
+class_names = list(train_data.class_indices.keys())
+print(f"Class Names: {class_names}")
+
+model = Sequential([
+    Conv2D(32, (3, 3), activation='relu', input_shape=(img_size[0], img_size[1], 3)),
+    MaxPooling2D((2, 2)),
+    Conv2D(64, (3, 3), activation='relu'),
+    MaxPooling2D((2, 2)),
+    Conv2D(128, (3, 3), activation='relu'),
+    MaxPooling2D((2, 2)),
+    Flatten(),
+    Dense(128, activation='relu'),
+    Dropout(0.5),
+    Dense(len(train_data.class_indices), activation='softmax')
+])
+
+model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
+
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout
 from tensorflow.keras.optimizers import Adam
+from tensorflow.keras.preprocessing import image
+import numpy as np
+import os
 
-# Initialize Flask app
-app = Flask(__name__)
-
-# Path to the trained model (use relative path for deployment)
-MODEL_PATH = 'model.h5'
-
-# Categories for face shapes
+TRAIN_DATASET = r"C:\Users\HP\sakib\findeyeglassframe_g-main\Face set\Train face"
+TEST_DATASET = r"C:\Users\HP\sakib\findeyeglassframe_g-main\Face set\Test face"
 CATEGORIES = ["heart", "long", "oval", "round", "square"]
+
 IMG_SIZE = (224, 224)
 BATCH_SIZE = 32
 
-# Recommendation logic for each face shape
+datagen = ImageDataGenerator(rescale=1./255, validation_split=0.2)
+
+train_generator = datagen.flow_from_directory(
+    TRAIN_DATASET,
+    target_size=IMG_SIZE,
+    batch_size=BATCH_SIZE,
+    class_mode='categorical',
+    subset='training'
+)
+
+validation_generator = datagen.flow_from_directory(
+    TRAIN_DATASET,
+    target_size=IMG_SIZE,
+    batch_size=BATCH_SIZE,
+    class_mode='categorical',
+    subset='validation'
+)
+
+model = Sequential([
+    Conv2D(32, (3, 3), activation='relu', input_shape=(224, 224, 3)),
+    MaxPooling2D(2, 2),
+    Conv2D(64, (3, 3), activation='relu'),
+    MaxPooling2D(2, 2),
+    Flatten(),
+    Dense(128, activation='relu'),
+    Dropout(0.5),
+    Dense(len(CATEGORIES), activation='softmax')
+])
+
+model.compile(optimizer=Adam(learning_rate=0.001),
+              loss='categorical_crossentropy',
+              metrics=['accuracy'])
+
+model.fit(train_generator, epochs=20, validation_data=validation_generator)
+
 recommendations = {
     "heart": "Round or oval frames",
     "long": "Tall frames with decorative temples",
@@ -26,66 +252,6 @@ recommendations = {
     "square": "Round or oval frames"
 }
 
-# Load the trained model
-model = load_model(MODEL_PATH)
-
-# Setup Image Data Generator
-def create_data_generator(directory, is_training=False):
-    datagen = ImageDataGenerator(
-        rescale=1.0 / 255.0,
-        rotation_range=20 if is_training else 0,
-        width_shift_range=0.2 if is_training else 0,
-        height_shift_range=0.2 if is_training else 0,
-        horizontal_flip=True if is_training else False
-    )
-    return datagen.flow_from_directory(
-        directory,
-        target_size=IMG_SIZE,
-        batch_size=BATCH_SIZE,
-        class_mode="categorical"
-    )
-
-# Paths for datasets
-TRAIN_DATASET = 'static/Train face'
-TEST_DATASET = 'static/Test face'
-FRAME_DATASET = 'static/Train frame'
-
-# Check if directories exist (relative to the Flask app)
-for dir_name, directory in [("Training", TRAIN_DATASET), ("Testing", TEST_DATASET), ("Frame", FRAME_DATASET)]:
-    if not os.path.exists(directory):
-        print(f"{dir_name} directory NOT found: {directory}")
-
-# Routes
-@app.route('/')
-def home():
-    return render_template("index.html")
-
-@app.route('/predict', methods=['POST'])
-def predict():
-    if 'file' not in request.files:
-        return jsonify({"error": "No file part"}), 400
-
-    file = request.files['file']
-    if file.filename == '':
-        return jsonify({"error": "No selected file"}), 400
-
-    try:
-        # Save the uploaded file temporarily
-        img_path = os.path.join('static', file.filename)
-        file.save(img_path)
-
-        # Predict the face shape
-        predicted_shape, frame_recommendation = recommend_glasses(img_path)
-
-        # Return the result as JSON
-        return jsonify({
-            "predicted_face_shape": predicted_shape,
-            "recommended_glasses_frame": frame_recommendation
-        })
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
-
-# Predict face shape and recommend glasses
 def recommend_glasses(image_path):
     img = image.load_img(image_path, target_size=IMG_SIZE)
     img_array = image.img_to_array(img) / 255.0
@@ -95,10 +261,46 @@ def recommend_glasses(image_path):
     predicted_shape = CATEGORIES[predicted_index]
     return predicted_shape, recommendations.get(predicted_shape, "No recommendation available")
 
-# Health check
-@app.route('/health', methods=['GET'])
-def health():
-    return jsonify({"status": "running"}), 200
+test_image_path = r"C:\Users\HP\Videos\New folder\tamim.jpg"
+predicted_shape, frame_recommendation = recommend_glasses(test_image_path)
+print(f"Predicted Face Shape: {predicted_shape}")
+print(f"Recommended Glasses Frame: {frame_recommendation}")
 
-if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+import os
+import matplotlib.pyplot as plt
+import cv2 as cv
+
+
+CATEGORIES = ["heart", "long", "oval", "round", "square"]
+
+fig, axes = plt.subplots(2, 3, figsize=(15, 10))
+
+axes = axes.flatten()
+
+for i, category in enumerate(CATEGORIES):
+    path = os.path.join(train_dir, category)
+    img_files = os.listdir(path)
+
+    if img_files:
+        img_file = img_files[0]
+        img_path = os.path.join(path, img_file)
+
+        img = cv.imread(img_path, 1)
+        img = cv.cvtColor(img, cv.COLOR_BGR2RGB)
+        axes[i].imshow(img)
+        axes[i].set_title(f"Frame for {category} face shape")
+        axes[i].axis('off')
+    else:
+        print(f"No images found in category: {category}")
+
+for j in range(len(CATEGORIES), len(axes)):
+    axes[j].set_visible(False)
+
+plt.tight_layout()
+plt.show()
+
+# Train the model
+history = model.fit(train_generator, epochs=20, validation_data=validation_generator)
+
+# Save the model
+model.save('face_shape_model.h5')
