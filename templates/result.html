@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('static/images/bb.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 600px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .result-section {
+            margin-top: 20px;
+        }
+
+        .result-section p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin: 15px 0;
+        }
+
+        .result-section strong {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 15px 30px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .back-btn:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+        }
+
+        .uploaded-image {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Face Shape Prediction Result</h1>
+
+        <div class="result-section">
+            <p><strong>Predicted Face Shape:</strong> <span style="font-weight: bold; color: #4CAF50;">{{ predicted_face_shape }}</span></p>
+            <p><strong>Recommended Frame Shape:</strong> <span style="font-weight: bold; color: #4CAF50;">{{ recommended_frame_shape }}</span></p>
+        </div>
+
+        <!-- Display the uploaded image -->
+        <div>
+            <img src="{{ url_for('static', filename='images/uploaded_image.jpg') }}" alt="Uploaded Image" class="uploaded-image">
+        </div>
+
+        <!-- "Try Another Image" button placed directly below the result section -->
+        <div>
+            <a href="{{ url_for('index') }}" class="back-btn">Try Another Image</a>
+        </div>
+    </div>
+
+</body>
+</html>
